@@ -1,8 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Calc from './src/Calc';
+import Calc from './lib/calculator';
 
-ReactDOM.render(
-  <Calc />,
-  document.getElementById('app')
-);
+let c = new Calc(21, 7);
+console.log(c.sum());
+console.log(c.sub());
+console.log(c.mult());
+console.log(c.div());
