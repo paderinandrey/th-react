@@ -1,7 +1,8 @@
-import Calc from './lib/calculator';
+import HelloWorld from './src/HelloWorld';
+import React from 'react';
+import RenderDOM from 'react-dom';
 
-let c = new Calc(21, 7);
-console.log(c.sum());
-console.log(c.sub());
-console.log(c.mult());
-console.log(c.div());
+RenderDOM.render(
+  <HelloWorld />,
+  document.getElementById('app')
+);
