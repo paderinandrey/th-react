@@ -1,8 +1,8 @@
-import HelloWorld from './src/HelloWorld';
+import App from './src/components/App';
 import React from 'react';
 import RenderDOM from 'react-dom';
 
 RenderDOM.render(
-  <HelloWorld />,
+  <App />,
   document.getElementById('app')
 );
