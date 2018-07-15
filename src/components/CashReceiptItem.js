@@ -10,11 +10,11 @@ class CashReceiptItem extends React.Component {
     return (
       <li>
         <div>
-          <button onClick={ (e) => this.handleRemoveItem(e, this.props.num) }>del</button>
+          <span>{this.props.value.name} - {this.props.value.price} - {this.props.value.quantity} - {this.props.value.sum}
+          <button onClick={ (e) => this.handleRemoveItem(e, this.props.num) }>x</button></span>
         </div>
-        {this.props.value}
       </li>
-    )
+    );
   }
 }
 
