@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CashReceipt extends Component {
+class HelloWorld extends Component {
   render() {
     return (
       <div>Hello, world!</div>
@@ -8,4 +8,4 @@ class CashReceipt extends Component {
   }
 }
 
-export default CashReceipt;
+export default HelloWorld;
