@@ -1,4 +1,5 @@
 import React from 'react';
+import generate from 'nanoid/generate';
 
 export default class ItemForm extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class ItemForm extends React.Component {
   handleAddItem(e) {
     e.preventDefault();
     const item = {
+      id: generate('1234567890abcdef', 10),
       name: this.state.name,
       price: parseInt(this.state.price),
       quantity: parseInt(this.state.quantity),

@@ -3,11 +3,11 @@ import React from 'react';
 
 class CashReceipt extends React.Component {
   renderItems() {
-    return this.props.items.map((item, index) =>
+    return this.props.items.map((item) =>
       <CashReceiptItem
-          key={index.toString()}
+          key={item.id}
           value={item}
-          num={index}
+          index={item.id}
           removeItem={this.props.removeItem}
         />
     );

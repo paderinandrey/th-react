@@ -11,7 +11,7 @@ class CashReceiptItem extends React.Component {
       <li>
         <div>
           <span>{this.props.value.name} - {this.props.value.price} - {this.props.value.quantity} - {this.props.value.sum}
-          <button onClick={ (e) => this.handleRemoveItem(e, this.props.num) }>x</button></span>
+          <button onClick={ (e) => this.handleRemoveItem(e, this.props.index) }>x</button></span>
         </div>
       </li>
     );

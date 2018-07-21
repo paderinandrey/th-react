@@ -17,22 +17,17 @@ export default class App extends React.Component {
   }
 
   addItem(item) {
-    let items = this.state.items;
-    items.push({
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity,
-      sum: item.sum
-    });
-    this.setState({ items });
+    let items = [...this.state.items, item];
     this.calculateTotals(items);
+    this.setState({ items });
   }
 
-  removeItem(item) {
-    let items = this.state.items.slice();
-    items.splice(item, 1);
-    this.setState({ items });
+  removeItem(itemId) {
+    let items = this.state.items.filter(
+      item => item.id !== itemId
+    );
     this.calculateTotals(items);
+    this.setState({ items });
   }
 
   calculateTotals(items) {
@@ -58,5 +53,5 @@ export default class App extends React.Component {
 
 const Adder = (items = [], attr) => {
   return items.map((item) => item[attr])
-    .reduce((acc, val) => acc + val);
+    .reduce((acc, val) => acc + val, 0);
 };
