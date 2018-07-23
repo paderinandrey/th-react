@@ -10,7 +10,7 @@ export default [{
     "id": generate('1234567890abcdef', 10),
     "title": "Crisps",
     "price": 3,
-    "imageUrl ": "https://cdn.pixabay.com/photo/2016/07/29/19/39/snack-1555519_960_720.jpg"
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/07/29/19/39/snack-1555519_960_720.jpg"
   },
   {
     "id": generate('1234567890abcdef', 10),

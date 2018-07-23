@@ -3,26 +3,24 @@ import PropTypes from 'prop-types';
 
 export default class Image extends React.Component {
   render() {
-    const { alt, height, weight } = this.props;
-    const params = {
-      src: this.props.value.imageUrl,
+    const { src, alt, height, weight } = this.props;
+    const attrs = {
+      src,
       alt,
-      height,
-      weight,
     };
-    return <img {...params} />;
+    return <img {...attrs} style={{ weight, height}} />;
   }
 }
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,
-  height: PropTypes.number,
-  weight: PropTypes.number,
+  height: PropTypes.string,
+  weight: PropTypes.string,
 };
 
 Image.defaultProps = {
   src: '',
   alt: 'no image available',
-  height: 64,
-  weight: 64,
+  height: '64px',
+  weight: '64px',
 };

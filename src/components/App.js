@@ -3,14 +3,15 @@ import ItemForm from './ItemForm';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import goods from '../../constants/Products';
+import ProductCart from './ProductCard';
+import products from '../../constants/Products';
 import React from 'react';
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      items: goods || [],
+      items: products || [],
       totalQuantity: 0,
       totalSum: 0
     };
@@ -39,16 +40,12 @@ export default class App extends React.Component {
   }
 
   render() {
-    const imageSettings = {
-      weight: 128,
-      height: 128,
-    };
-
     return (
       <div>
-        <Image value={goods.pop()} {...imageSettings}/>
-        <TextBox value={'TextBox Component'} />
-        <Price value={12} />
+        { products.slice(0, 3).map(product =>
+            <ProductCart key={product.id} product={product} />
+          )
+        }
         <CashReceipt
           items={ this.state.items || [] }
           removeItem={this.removeItem}
