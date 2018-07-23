@@ -1,6 +1,7 @@
 import CashReceipt from './CashReceipt';
 import ItemForm from './ItemForm';
 import Image from './Image';
+import TextBox from './TextBox';
 import goods from '../../constants/Products';
 import React from 'react';
 
@@ -45,6 +46,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Image value={goods.pop()} {...imageSettings}/>
+        <TextBox value={'TextBox Component'} />
         <CashReceipt
           items={ this.state.items || [] }
           removeItem={this.removeItem}
