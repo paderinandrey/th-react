@@ -1,6 +1,7 @@
 import CashReceipt from './CashReceipt';
 import ItemForm from './ItemForm';
-import goods from './goods.json';
+import Image from './Image';
+import goods from '../../constants/Products';
 import React from 'react';
 
 export default class App extends React.Component {
@@ -36,8 +37,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    const imageSettings = {
+      weight: 128,
+      height: 128,
+    };
+
     return (
       <div>
+        <Image value={goods.pop()} {...imageSettings}/>
         <CashReceipt
           items={ this.state.items || [] }
           removeItem={this.removeItem}
