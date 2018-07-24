@@ -1,9 +1,6 @@
 import CashReceipt from './CashReceipt';
 import ItemForm from './ItemForm';
-import Image from './Image';
-import TextBox from './TextBox';
-import Price from './Price';
-import ProductCart from './ProductCard';
+import Catalog from './Catalog';
 import products from '../../constants/Products';
 import React from 'react';
 
@@ -42,10 +39,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        { products.slice(0, 3).map(product =>
-            <ProductCart key={product.id} product={product} />
-          )
-        }
+        <Catalog products={products} />
         <CashReceipt
           items={ this.state.items || [] }
           removeItem={this.removeItem}
