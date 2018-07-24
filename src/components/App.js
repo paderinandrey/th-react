@@ -1,6 +1,6 @@
 import CashReceipt from './CashReceipt';
 import ItemForm from './ItemForm';
-import Catalog from './Catalog';
+import CatalogPage from './CatalogPage';
 import products from '../../constants/Products';
 import React from 'react';
 
@@ -39,7 +39,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Catalog products={products} />
+        <CatalogPage products={products} />
         <CashReceipt
           items={ this.state.items || [] }
           removeItem={this.removeItem}
