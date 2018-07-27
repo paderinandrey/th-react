@@ -36,4 +36,4 @@ export default [{
     "price": 3,
     "imageUrl": "https://cdn.pixabay.com/photo/2018/04/29/11/54/strawberries-3359755_960_720.jpg"
   },
-]
+];

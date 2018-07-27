@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class Price extends React.Component {
   render() {
-    return <span>{this.props.value}</span>;
+    const { children } = this.props;
+    return <span>{children}</span>;
   }
 }
 
