@@ -2,6 +2,7 @@ import React from 'react';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
+import Counter from './Counter';
 
 export default class ProductCart extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class ProductCart extends React.Component {
         <Image src={product.imageUrl} {...imageAttrs} />
         <TextBox>{product.title}</TextBox>
         <Price>{product.price}</Price>
+        <Counter />
       </div>
     );
   }
