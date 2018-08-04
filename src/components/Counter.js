@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export default class Counter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: 0 };
-    this.put = this.put.bind(this);
+    this.state = { quantity: 1 };
+    this.add = this.add.bind(this);
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
   }
@@ -13,25 +13,32 @@ export default class Counter extends React.Component {
   increment(e) {
     e.preventDefault();
     this.setState(prevState => ({
-      value: Number(prevState.value) + 1
-    }));
+      quantity: Number(prevState.quantity) + 1
+    }), () => {
+      this.props.updateQuantity(this.state.quantity);
+    });
   }
 
   decrement(e) {
     e.preventDefault();
-    this.setState(prevState => ({
-      value: Number(prevState.value) - 1
-    }));
-  }
 
-  put(e) {
-    this.setState({
-      [e.target.name]: e.target.value
+    if (this.state.quantity <= 1) {
+      return this.state.quantity;
+    }
+
+    this.setState(prevState => ({
+      quantity: Number(prevState.quantity) - 1
+    }), () => {
+      this.props.updateQuantity(this.state.quantity);
     });
   }
 
-  reset() {
-    this.setState({ value: 1 });
+  add(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    }, () => {
+      this.props.updateQuantity(this.state.quantity);
+    });
   }
 
   render() {
@@ -40,9 +47,10 @@ export default class Counter extends React.Component {
         <button onClick={this.decrement}>-</button>
         <input
           type="number"
-          name="value"
-          value={this.state.value}
-          onChange={this.put}
+          name="quantity"
+          min={1}
+          value={this.state.quantity}
+          onChange={this.add}
         />
         <button onClick={this.increment}>+</button>
       </div>
@@ -51,5 +59,9 @@ export default class Counter extends React.Component {
 }
 
 Counter.propTypes = {
-  value: PropTypes.number
+  quantity: PropTypes.number
+};
+
+Counter.defaultProps = {
+  quantity: 1
 };
