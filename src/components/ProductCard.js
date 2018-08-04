@@ -18,6 +18,13 @@ export default class ProductCard extends React.Component {
     });
   }
 
+  dragStart(ev, product) {
+    ev.dataTransfer.setData('selProduct', JSON.stringify({
+      product,
+      qty: this.state.quantity
+    }));
+  }
+
   render() {
     const { product } = this.props;
     const imageAttrs = {
@@ -26,7 +33,7 @@ export default class ProductCard extends React.Component {
       height: '128px',
     };
     return (
-      <div>
+      <div draggable onDragStart={(e) => this.dragStart(e, product)}>
         <Image src={product.imageUrl} {...imageAttrs} />
         <TextBox>{product.title}</TextBox>
         <Price>{product.price}</Price>

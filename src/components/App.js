@@ -9,8 +9,8 @@ export default class App extends React.Component {
     return (
       <div>
         <CartProvider>
-          <CatalogPage products={products || []} />
           <Cart />
+          <CatalogPage products={products || []} />
         </CartProvider>
       </div>
     );

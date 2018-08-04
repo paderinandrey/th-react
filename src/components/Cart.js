@@ -5,14 +5,21 @@ import CartItem from './CartItem';
 import Total from './Total';
 
 export default class Cart extends React.Component {
+  handleDrop(ev, addToCart) {
+    const { product, qty } = JSON.parse(ev.dataTransfer.getData('selProduct'));
+    addToCart(product, qty);
+  }
+
   render() {
     return (
       <div>
         <h3>Your Cart</h3>
         <CartConsumer>
           {
-            ({cart}) => (
-              <div>
+            ({cart, addToCart}) => (
+              <div
+                onDrop={(e) => this.handleDrop(e, addToCart)}
+                onDragOver={(e) => e.preventDefault()}>
                 {cart.map((item) => (<CartItem key={item.id} {...item} />))}
                 <Total products={cart} />
               </div>
@@ -26,4 +33,5 @@ export default class Cart extends React.Component {
 
 Cart.propTypes = {
   cart: PropTypes.array,
+  addToCart: PropTypes.func,
 };
