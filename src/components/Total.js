@@ -5,7 +5,7 @@ export default class Total extends React.Component {
     const { products } = this.props;
     return (
       <h3>
-        Total:
+        Total:&nbsp;
           {products.reduce((sum, i) => (
             sum += (i.quantity || 0) * i.price
           ), 0)}
