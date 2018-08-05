@@ -6,8 +6,8 @@ import Total from './Total';
 
 export default class Cart extends React.Component {
   handleDrop(ev, addToCart) {
-    const { product, qty } = JSON.parse(ev.dataTransfer.getData('selProduct'));
-    addToCart(product, qty);
+    const { product } = JSON.parse(ev.dataTransfer.getData('selectedProduct'));
+    addToCart(product);
   }
 
   render() {

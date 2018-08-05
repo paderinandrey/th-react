@@ -12,7 +12,7 @@ class CartProvider extends React.Component {
     this.addToCart = this.addToCart.bind(this);
   }
 
-  addToCart(selectedProduct, qty) {
+  addToCart(selectedProduct, qty = 1) {
     let cartItems = this.state.cart;
     let productID = selectedProduct.id;
     let isFound = cartItems.some(item => item.id === productID);
