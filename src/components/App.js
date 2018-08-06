@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CatalogPage from './CatalogPage';
 import { CartProvider } from '../containers/CartContainer';
 import Cart from './Cart';
