@@ -1,13 +1,14 @@
 import React from 'react';
 import Catalog from './Catalog';
+import { CartProvider } from '../containers/CartContainer';
+import products from '../constants/Products';
 
 export default class CatalogPage extends React.Component {
   render() {
-    const { products } = this.props;
     return (
-      <div>
-        <Catalog products={ products } />
-      </div>
+      <CartProvider>
+        <Catalog products={products || []} />
+      </CartProvider>
     );
   }
 }
