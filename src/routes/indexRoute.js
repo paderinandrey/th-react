@@ -4,6 +4,7 @@ import RootRoute from './rootRoute';
 import ContactRoute from './contactRoute';
 import NotFoundRoute from './notFoundRoute';
 import ProductsRoute from './productsRoute';
+import ProductRoute from './productRoute';
 
 import RouteWithSubRoutes from './routeWithSubRoutes';
 
@@ -11,6 +12,7 @@ const routes = [
   RootRoute,
   ContactRoute,
   ProductsRoute,
+  ProductRoute,
   NotFoundRoute
 ];
 
