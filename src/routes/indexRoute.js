@@ -5,6 +5,7 @@ import ContactRoute from './contactRoute';
 import NotFoundRoute from './notFoundRoute';
 import ProductsRoute from './productsRoute';
 import ProductRoute from './productRoute';
+import CartRoute from './cartRoute';
 
 import RouteWithSubRoutes from './routeWithSubRoutes';
 
@@ -13,6 +14,7 @@ const routes = [
   ContactRoute,
   ProductsRoute,
   ProductRoute,
+  CartRoute,
   NotFoundRoute
 ];
 
