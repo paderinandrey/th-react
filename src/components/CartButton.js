@@ -2,6 +2,7 @@ import React from 'react';
 import { CartConsumer } from '../containers/CartContainer';
 import { rootPath, cartPath } from '../helpers/routes';
 import { withRouter } from 'react-router-dom';
+import { emptyCartMsg } from '../helpers/messages';
 
 class cartButton extends React.Component {
   handleDrop(ev, addToCart) {
@@ -10,12 +11,9 @@ class cartButton extends React.Component {
   }
 
   handleClick(e, cart) {
-    if (cart.length > 0) {
-      this.props.history.push(cartPath());
-    }
-    else {
-      this.props.history.push(rootPath(), { message: "Your cart is currently empty. Please add some products to cart." });
-    }
+    const { history } = this.props;
+    cart.length > 0 ? history.push(cartPath()) :
+      history.push(rootPath(), { message: emptyCartMsg() });
   }
 
   render() {
