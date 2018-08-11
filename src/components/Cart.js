@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import { CartConsumer } from '../containers/CartContainer';
 import CartItem from './CartItem';
 import Total from './Total';
+import { emptyCartMsg } from '../helpers/messages';
+import { rootPath } from '../helpers/routes';
 
 export default class Cart extends React.Component {
   handleDrop(ev, addToCart) {
@@ -16,12 +19,21 @@ export default class Cart extends React.Component {
         <h3>Your Cart</h3>
         <CartConsumer>
           {
-            ({cart, addToCart}) => (
-              <div
-                onDrop={(e) => this.handleDrop(e, addToCart)}
-                onDragOver={(e) => e.preventDefault()}>
-                {cart.map((item) => (<CartItem key={item.id} {...item} />))}
-                <Total products={cart} />
+            ({cart, addToCart, isCartEmpty}) => (
+              <div>
+                {isCartEmpty() ?
+                  <Redirect to={{
+                    pathname: rootPath(),
+                    state: { message: emptyCartMsg() }
+                  }}/>
+                  :
+                  <div
+                    onDrop={(e) => this.handleDrop(e, addToCart)}
+                    onDragOver={(e) => e.preventDefault()}>
+                    {cart.map((item) => (<CartItem key={ item.id } { ...item } />))}
+                    <Total products={cart} />
+                  </div>
+                }
               </div>
             )
           }
