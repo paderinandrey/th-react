@@ -6,8 +6,7 @@ class CartProvider extends React.Component {
   constructor() {
     super();
     this.state = {
-      cart: [],
-      totalItems: 0,
+      cart: []
     };
     this.addToCart = this.addToCart.bind(this);
   }
