@@ -1,17 +1,24 @@
 import React from 'react';
 import CatalogPage from './CatalogPage';
-import { CartProvider } from '../containers/CartContainer';
-import Cart from './Cart';
-import products from '../../constants/Products';
+import Menu from './Menu';
+import CartButton from './CartButton';
 
 export default class App extends React.Component {
+  componentDidMount() {
+    const { history } = this.props;
+    history.listen((location, action) => {
+      if (location.state && location.state.message) {
+        alert(location.state.message);
+      }
+    });
+  }
+
   render() {
     return (
       <div>
-        <CartProvider>
-          <Cart />
-          <CatalogPage products={products || []} />
-        </CartProvider>
+        <Menu />
+        <CartButton />
+        <CatalogPage />
       </div>
     );
   }

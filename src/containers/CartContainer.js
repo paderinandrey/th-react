@@ -6,10 +6,10 @@ class CartProvider extends React.Component {
   constructor() {
     super();
     this.state = {
-      cart: [],
-      totalItems: 0,
+      cart: []
     };
     this.addToCart = this.addToCart.bind(this);
+    this.isCartEmpty = this.isCartEmpty.bind(this);
   }
 
   addToCart(selectedProduct, qty = 1) {
@@ -32,11 +32,16 @@ class CartProvider extends React.Component {
     this.setState({ cart });
   }
 
+  isCartEmpty() {
+    return this.state.cart.length === 0;
+  }
+
   render() {
     return (
       <CartContext.Provider value={{
           cart: this.state.cart,
-          addToCart: this.addToCart
+          addToCart: this.addToCart,
+          isCartEmpty: this.isCartEmpty
         }}>
         { this.props.children }
       </CartContext.Provider>
