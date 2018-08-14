@@ -7,7 +7,7 @@ export default class Catalog extends React.Component {
     return (
       <div>
       {products.map(product =>
-        <ProductCard key={product.id} product={product} />)
+        <ProductCard key={product.fields.id} product={product} />)
       }
     </div>);
   }

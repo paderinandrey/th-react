@@ -12,15 +12,15 @@ export default class ProductCard extends React.Component {
   render() {
     const { product } = this.props;
     const imageAttrs = {
-      alt: product.title,
+      alt: product.fields.title,
       weight: '128px',
       height: '128px',
     };
     return (
       <div draggable onDragStart={(e) => this.dragStart(e, product)}>
-        <Image src={product.imageUrl} {...imageAttrs} />
-        <TextBox>{product.title}</TextBox>
-        <Price>{product.price}</Price>
+        <Image src={product.fields.imageUrl} {...imageAttrs} />
+        <TextBox>{product.fields.title}</TextBox>
+        <Price>{product.fields.price}</Price>
         <AddToCart product={product} />
       </div>
     );
