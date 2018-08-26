@@ -4,7 +4,7 @@ import { createClient } from 'contentful';
 
 let client;
 
-export function initClient() {
+export const initClient = () => {
   client = createClient({
     space: spaceId,
     accessToken,
@@ -14,9 +14,9 @@ export function initClient() {
     .then((space) => {
       return space;
     });
-}
+};
 
-export function loadProducts() {
+export const loadProducts = () => {
   initClient();
   let result = [];
   return client.getEntries({
@@ -32,10 +32,9 @@ export function loadProducts() {
     });
     return result;
   }).catch(console.error);
-}
+};
 
-
-export function loadProduct(id) {
+export const loadProduct = (id) => {
   initClient();
   return client.getEntry(id).then((item) => {
     return {
@@ -46,27 +45,26 @@ export function loadProduct(id) {
       photos: GetPhotos(item)
     };
   }).catch(console.error);
-}
+};
 
-function GetPhotos(item) {
+const GetPhotos = (item) => {
   let results = [];
   let { photos } = item.fields;
   photos.map((photo) =>
     results.push(photoUrl(photo))
   );
   return results;
-}
+};
 
-
-function GetPhoto(item) {
+const GetPhoto = (item) => {
   let imgUrl = noImageAvailable();
   let { mainPhoto } = item.fields;
   if (mainPhoto != undefined) {
     imgUrl = photoUrl(mainPhoto);
   }
   return imgUrl;
-}
+};
 
-function photoUrl(photo) {
+const photoUrl = (photo) => {
   return 'https:' + photo.fields.file.url;
-}
+};

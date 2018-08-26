@@ -6,7 +6,7 @@ export default class Gallery extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      items: this.props.photoUrls || []
+      photos: this.props.photoUrls || []
     };
   }
 
@@ -14,30 +14,54 @@ export default class Gallery extends React.Component {
     this.setState({ currentIndex: i });
   }
 
+  slideNext() {
+    if (this.state.currentIndex >= this.state.photos.length - 1) {
+      return this.state.currentIndex;
+    }
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex + 1
+    }));
+  }
+
+  slidePrev() {
+    if (this.state.currentIndex <= 0) {
+      return this.state.currentIndex;
+    }
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex - 1
+    }));
+  }
+
   renderPhoto(photoUrl, i) {
     const { height, weight } = this.props;
     const divStyle = {
       display: 'inline'
     };
-
     return (
-      <div style={divStyle}>
-        <img src={photoUrl} style={{ weight, height}} onClick={() => this.slideTo(i)}/>
+      <div style={divStyle} key={"img-"+i}>
+        <img src={photoUrl}
+             style={{ weight, height}}
+             onClick={() => this.slideTo(i)}
+        />
       </div>
     );
   }
 
   render() {
-
     const divStyle = {
       weight: '640px',
       height: '480px'
     };
+    const { photos } = this.state;
     return (
       <div>
-        <img src={ this.state.items[this.state.currentIndex ] } style={divStyle}/>
+        <img src={ photos[this.state.currentIndex ] } style={divStyle}/>
         <div>
-          {this.state.items.map((photoUrl, i) => this.renderPhoto(photoUrl, i))}
+          <button onClick={() => this.slidePrev()}>Prev</button>
+          <button onClick={() => this.slideNext()}>Next</button>
+        </div>
+        <div>
+          {photos.map((photoUrl, i) => this.renderPhoto(photoUrl, i))}
         </div>
       </div>
     );
