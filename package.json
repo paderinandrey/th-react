@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "contentful": "^7.0.1",
     "faker": "^4.1.0",
     "nanoid": "^1.1.0",
     "prop-types": "^15.6.2",

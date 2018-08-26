@@ -3,25 +3,43 @@ import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
 import AddToCart from './AddToCart';
+import Gallery from './Gallery';
+import { loadProduct } from '../services/contentfulClient';
 
 export default class ProductCard extends React.Component {
-  dragStart(ev, product) {
-    ev.dataTransfer.setData('selectedProduct', JSON.stringify({ product }));
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: {},
+      isLoading: true
+    };
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    loadProduct(id).then((product) => {
+      this.setState({ product, isLoading: false });
+    });
   }
 
   render() {
-    const { product } = this.props;
+    const { isLoading, product } = this.state;
+
+    if (isLoading) { return null }
+
     const imageAttrs = {
-      alt: product.fields.title,
+      alt: product.title,
       weight: '128px',
       height: '128px',
     };
+
     return (
-      <div draggable onDragStart={(e) => this.dragStart(e, product)}>
-        <Image src={product.fields.imageUrl} {...imageAttrs} />
-        <TextBox>{product.fields.title}</TextBox>
-        <Price>{product.fields.price}</Price>
+      <div>
+        <Image src={product.imageUrl} {...imageAttrs} />
+        <TextBox>{product.title}</TextBox>
+        <Price>{product.price}</Price>
         <AddToCart product={product} />
+        <Gallery photoUrls={product.photos} />
       </div>
     );
   }
