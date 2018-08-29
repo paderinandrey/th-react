@@ -15,5 +15,5 @@ export default class CartItem extends React.Component {
 CartItem.propTypes = {
   title: PropTypes.string,
   quantity: PropTypes.number,
-  price: PropTypes.string
+  price: PropTypes.number
 };
