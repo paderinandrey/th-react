@@ -3,7 +3,7 @@ import RenderDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { CartProvider } from './src/containers/CartContainer';
 import IndexRoute from './src/routes/indexRoute';
-import store from './src/store/shopStore';
+import store from './src/store';
 
 import { increment } from '~/src/actions/counter';
 
