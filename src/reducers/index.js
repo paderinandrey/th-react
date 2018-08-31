@@ -1,12 +1,6 @@
-const INITIAL_STATE = 0;
+import { combineReducers } from 'redux';
+import { productsReducer } from './products';
 
-const counter = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + action.amount;
-    default:
-      return state;
-  }
-};
-
-export default counter;
+export const rootReducer = combineReducers({
+  products: productsReducer,
+});
