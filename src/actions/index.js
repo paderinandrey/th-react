@@ -1,4 +1,5 @@
-export const increment = (amount = 1) => ({
-  type: 'INCREMENT',
-  amount
-});
+import products from './products';
+
+export default {
+  products,
+};
