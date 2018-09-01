@@ -5,14 +5,13 @@ import {
 }
 from '~/src/actions/ProductsActions';
 
-
 const INITIAL_STATE = {
   products: [],
   isFetching: false,
   error: '',
 };
 
-const productsReducer = (state = INITIAL_STATE, action) => {
+export function productsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_PRODUCTS_REQUEST:
       return { ...state, isFetching: true, error: '' };
@@ -23,6 +22,4 @@ const productsReducer = (state = INITIAL_STATE, action) => {
     default:
       return state;
   }
-};
-
-export default productsReducer;
+}

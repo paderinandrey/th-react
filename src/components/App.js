@@ -1,5 +1,5 @@
 import React from 'react';
-import CatalogPage from './CatalogPage';
+import CatalogContainer from '~/src/containers/CatalogContainer';
 import Menu from './Menu';
 import CartButton from './CartButton';
 
@@ -18,7 +18,7 @@ export default class App extends React.Component {
       <div>
         <Menu />
         <CartButton />
-        <CatalogPage />
+        <CatalogContainer />
       </div>
     );
   }

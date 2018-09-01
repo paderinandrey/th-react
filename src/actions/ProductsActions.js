@@ -27,7 +27,6 @@ function fetchProductsFailure(error) {
 export function fetchProducts() {
   return function(dispatch) {
     dispatch(fetchProductsRequest());
-
     return loadProducts().then((products) => {
         dispatch(fetchProductsSuccess(products));
       },

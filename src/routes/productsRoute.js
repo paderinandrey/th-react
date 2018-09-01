@@ -1,10 +1,10 @@
 import { productsPath } from '../helpers/routes';
-import CatalogPage from '../components/CatalogPage';
+import CatalogContainer from '../containers/CatalogContainer';
 
 export default {
   name: 'Products',
   exact: true,
   strict: true,
   path: productsPath(),
-  component: CatalogPage
+  component: CatalogContainer
 };
