@@ -3,9 +3,10 @@ import { addToCart } from '~/src/actions/CartActions';
 import CartButton from '~/src/components/CartButton';
 
 const mapStateToProps = (state) => {
-  const { items, quantity } = state.cart;
+  const { totalQty, totalSum } = state.cart;
   return ({
-    quantity: quantity,
+    totalQty,
+    totalSum,
   });
 };
 

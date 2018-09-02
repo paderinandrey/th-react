@@ -8,8 +8,7 @@ class cartButton extends React.Component {
   }
 
   render() {
-    const { quantity, handleDrop } = this.props;
-
+    const { totalQty, totalSum, handleDrop } = this.props;
     const divStyle = {
       width: '100px',
       height: '50px'
@@ -21,7 +20,7 @@ class cartButton extends React.Component {
           onClick={(e) => this.handleClick(e)}
           onDrop={(e) => handleDrop(e)}
           onDragOver={(e) => e.preventDefault()}>
-          Cart ({quantity})
+          Cart ({totalQty} - {totalSum}$)
         </button>
       </div>
     );
