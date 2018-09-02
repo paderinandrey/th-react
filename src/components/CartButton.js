@@ -9,14 +9,14 @@ class cartButton extends React.Component {
 
   render() {
     const { totalQty, totalSum, handleDrop } = this.props;
-    const divStyle = {
-      width: '100px',
+    const CartButtonStyle = {
+      width: '120px',
       height: '50px'
     };
 
     return (
       <div>
-        <button style={divStyle}
+        <button style={CartButtonStyle}
           onClick={(e) => this.handleClick(e)}
           onDrop={(e) => handleDrop(e)}
           onDragOver={(e) => e.preventDefault()}>
