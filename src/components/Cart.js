@@ -23,7 +23,7 @@ export default class Cart extends React.Component {
       <div>
         <h3>Your Cart</h3>
         { items.map((item) => (<CartItem key={ item.id } { ...item } />)) }
-        <Total totalQty={totalQty} totalSum={totalSum} />
+        <Total totalQty={ totalQty } totalSum={ totalSum } />
       </div>
     );
   }
