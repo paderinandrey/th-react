@@ -14,7 +14,6 @@ class CatalogContainer extends React.Component {
   }
 }
 
-
 const mapStateToProps = store => {
   return {
     catalog: store.products,

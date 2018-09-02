@@ -3,7 +3,7 @@ import {
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
 }
-from '~/src/actions/ProductsActions';
+from '../constants/ActionTypes';
 
 const INITIAL_STATE = {
   products: [],

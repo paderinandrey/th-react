@@ -1,7 +1,7 @@
 import React from 'react';
 import CatalogContainer from '~/src/containers/CatalogContainer';
+import CartButtonContainer from '~/src/containers/CartButtonContainer';
 import Menu from './Menu';
-import CartButton from './CartButton';
 
 export default class App extends React.Component {
   componentDidMount() {
@@ -17,7 +17,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Menu />
-        <CartButton />
+        <CartButtonContainer />
         <CatalogContainer />
       </div>
     );
