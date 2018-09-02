@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Catalog from '~/src/components/Catalog';
 import { fetchProducts } from '~/src/actions/ProductsActions';
+import { addToCart } from '~/src/actions/CartActions';
 
 class CatalogContainer extends React.Component {
   componentDidMount() {
@@ -9,8 +10,8 @@ class CatalogContainer extends React.Component {
   }
 
   render() {
-    const { catalog } = this.props;
-    return <Catalog { ...catalog } />;
+    const { catalog, addToCart } = this.props;
+    return <Catalog { ...catalog } addToCart = { addToCart }/>;
   }
 }
 
@@ -22,11 +23,14 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: dispatch(fetchProducts())
+    fetchProducts: dispatch(fetchProducts()),
+    addToCart(product, quantity) {
+      dispatch(addToCart(product, quantity));
+    },
   };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CatalogContainer);
