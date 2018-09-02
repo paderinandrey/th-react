@@ -2,7 +2,7 @@ import React from 'react';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import AddToCart from './AddToCart';
+import AddToCartForm from './AddToCartForm';
 import Gallery from './Gallery';
 
 export default class ProductView extends React.Component {
@@ -20,7 +20,7 @@ export default class ProductView extends React.Component {
         <Image src={product.imageUrl} {...imageAttrs} />
         <TextBox>{product.title}</TextBox>
         <Price>{product.price}</Price>
-        <AddToCart product={product} />
+        <AddToCartForm product={product} />
         <Gallery photoUrls={product.photos} />
       </div>
     );

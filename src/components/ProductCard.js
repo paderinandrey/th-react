@@ -21,6 +21,6 @@ export default class ProductCard extends React.Component {
   render() {
     const { isLoading, product } = this.state;
     if (isLoading) { return null }
-    return <ProductView product={product} />;
+    return <ProductView product={ product } />;
   }
 }

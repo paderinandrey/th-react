@@ -5,10 +5,10 @@ import { loadingProductsErr, loadingMsg } from '~/src/helpers/messages';
 
 export default class Catalog extends React.Component {
   render() {
-    const { products, isFetching, error } = this.props;
+    const { products, isFetching, error, addToCart } = this.props;
 
     if (error) {
-      return <p className="error">{ loadingProductsErr() }</p>;
+      return <p>{ loadingProductsErr() }</p>;
     }
 
     if (isFetching) {
@@ -17,17 +17,18 @@ export default class Catalog extends React.Component {
     else {
       return (
         <div>
-          {
-            products.map(product => (
-              <ProductItem key={product.id} product={product} />)
-            )
-          }
+          {products.map(product => (
+            <ProductItem
+              key={product.id}
+              product={ product }
+              addToCart={ addToCart }
+            />)
+          )}
         </div>
       );
     }
   }
 }
-
 
 Catalog.propTypes = {
   products: PropTypes.array.isRequired,
