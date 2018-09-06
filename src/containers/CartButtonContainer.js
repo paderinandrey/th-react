@@ -11,8 +11,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleDrop(ev) {
-    const { product } = JSON.parse(ev.dataTransfer.getData('selectedProduct'));
+  addProductToCart(product) {
     dispatch(addToCart(product));
   },
 });

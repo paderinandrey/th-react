@@ -7,8 +7,13 @@ class cartButton extends React.Component {
     this.props.history.push(cartPath());
   }
 
+  handleDrop(ev) {
+    const { product } = JSON.parse(ev.dataTransfer.getData('selectedProduct'));
+    this.props.addProductToCart(product);
+  }
+
   render() {
-    const { totalQty, totalSum, handleDrop } = this.props;
+    const { totalQty, totalSum } = this.props;
     const CartButtonStyle = {
       width: '120px',
       height: '50px'
@@ -18,7 +23,7 @@ class cartButton extends React.Component {
       <div>
         <button style={CartButtonStyle}
           onClick={(e) => this.handleClick(e)}
-          onDrop={(e) => handleDrop(e)}
+          onDrop={(e) => this.handleDrop(e)}
           onDragOver={(e) => e.preventDefault()}>
           Cart ({totalQty} - {totalSum}$)
         </button>
